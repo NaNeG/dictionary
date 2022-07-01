@@ -102,7 +102,7 @@ class enru_Cambridge {
                 `<b>${expression}</b>`
               )}</span>`;
               ru_trans = `<span class='ru_trans'>${ru_trans}</span>`;
-              let tran = `<span class='tran'>${eng_tran}<br>${ru_trans}</span>`;
+              let tran = `<span class='tran'>Значение: ${eng_tran}<br>Перевод: ${ru_trans}</span>`;
               definition += phrasehead ? `${phrasehead}${tran}` : `${pos}${tran}`;
   
               // make example segement
