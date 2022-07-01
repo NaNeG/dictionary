@@ -66,11 +66,6 @@ class enru_Cambridge {
           ? "https://dictionary.cambridge.org" + audios[0].getAttribute("src")
           : "";
         //audios[0] = audios[0].replace('https', 'http');
-        audios[1] = entry.querySelector(".us.dpron-i source");
-        audios[1] = audios[1]
-          ? "https://dictionary.cambridge.org" + audios[1].getAttribute("src")
-          : "";
-        //audios[1] = audios[1].replace('https', 'http');
   
         let sensbodys = entry.querySelectorAll(".sense-body") || [];
         for (const sensbody of sensbodys) {
@@ -106,7 +101,7 @@ class enru_Cambridge {
                 RegExp(expression, "gi"),
                 `<b>${expression}</b>`
               )}</span>`;
-              ru_trans = `<span class='chn_tran'>${ru_trans}</span>`;
+              ru_trans = `<span class='ru_trans'>${ru_trans}</span>`;
               let tran = `<span class='tran'>${eng_tran}${ru_trans}</span>`;
               definition += phrasehead ? `${phrasehead}${tran}` : `${pos}${tran}`;
   
@@ -117,11 +112,11 @@ class enru_Cambridge {
                 for (const [index, examp] of examps.entries()) {
                   if (index > this.maxexample - 1) break; // to control only 2 example sentence.
                   let eng_examp = T(examp.querySelector(".eg"));
-                  let chn_examp = T(examp.querySelector(".trans"));
+                  let ru_examp = T(examp.querySelector(".trans"));
                   definition += `<li class='sent'><span class='eng_sent'>${eng_examp.replace(
                     RegExp(expression, "gi"),
                     `<b>${expression}</b>`
-                  )}</span><span class='chn_sent'>${chn_examp}</span></li>`;
+                  )}</span><span class='ru_sent'>${ru_examp}</span></li>`;
                 }
                 definition += "</ul>";
               }
@@ -149,11 +144,11 @@ class enru_Cambridge {
                 span.pos  {text-transform:lowercase; font-size:0.9em; margin-right:5px; padding:2px 4px; color:white; background-color:#0d47a1; border-radius:3px;}
                 span.tran {margin:0; padding:0;}
                 span.eng_tran {margin-right:3px; padding:0;}
-                span.chn_tran {color:#0d47a1;}
+                span.ru_trans {color:#0d47a1;}
                 ul.sents {font-size:0.8em; list-style:square inside; margin:3px 0;padding:5px;background:rgba(13,71,161,0.1); border-radius:5px;}
                 li.sent  {margin:0; padding:0;}
                 span.eng_sent {margin-right:5px;}
-                span.chn_sent {color:#0d47a1;}
+                span.ru_sent {color:#0d47a1;}
             </style>`;
       return css;
     }
