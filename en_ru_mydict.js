@@ -55,8 +55,8 @@ class enru_Cambridge {
           let reading_uk = T(readings[0]);
           let reading_us = T(readings[1]);
           reading =
-            reading_uk || reading_us
-              ? `UK[${reading_uk}] US[${reading_us}] `
+            reading_uk
+              ? `Транскрипция: [${reading_uk}]`
               : "";
         }
         let pos = T(entry.querySelector(".posgram"));
@@ -102,7 +102,7 @@ class enru_Cambridge {
                 `<b>${expression}</b>`
               )}</span>`;
               ru_trans = `<span class='ru_trans'>${ru_trans}</span>`;
-              let tran = `<span class='tran'>${eng_tran}${ru_trans}</span>`;
+              let tran = `<span class='tran'>${eng_tran}<br>${ru_trans}</span>`;
               definition += phrasehead ? `${phrasehead}${tran}` : `${pos}${tran}`;
   
               // make example segement
